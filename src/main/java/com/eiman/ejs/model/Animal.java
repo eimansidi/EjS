@@ -129,19 +129,4 @@ public class Animal {
     public void setFoto(byte[] foto) {
         this.foto = foto;
     }
-
-    @Override
-    public String toString() {
-        return "Animal{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", especie='" + especie + '\'' +
-                ", raza='" + raza + '\'' +
-                ", sexo='" + sexo + '\'' +
-                ", edad=" + edad +
-                ", peso=" + peso +
-                ", observaciones='" + observaciones + '\'' +
-                ", fechaPrimeraConsulta='" + fechaPrimeraConsulta + '\'' +
-                '}';
-    }
 }
