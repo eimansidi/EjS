@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" spacing="10" alignment="CENTER" fx:controller="com.eiman.ejs.controller.FormularioController">
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" spacing="10" alignment="CENTER" fx:controller="controller.FormularioController">
     <padding>
         <Insets top="10" right="10" bottom="10" left="10"/>
     </padding>
@@ -29,10 +29,10 @@
         <TextField fx:id="sexoField" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
 
         <Label text="Edad:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
-        <Spinner fx:id="edadSpinner" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+        <TextField fx:id="edadField" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
 
         <Label text="Peso (kg):" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
-        <Spinner fx:id="pesoSpinner" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+        <TextField fx:id="pesoField" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
 
         <Label text="Observaciones:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
         <TextArea fx:id="observacionesArea" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
@@ -40,11 +40,8 @@
         <Label text="Fecha Primera Consulta:" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
         <DatePicker fx:id="fechaPrimeraConsultaPicker" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
 
-        <Label text="Ultima Revision:" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
-        <DatePicker fx:id="ultimaRevisionPicker" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
-
-        <Label text="Foto:" GridPane.columnIndex="0" GridPane.rowIndex="9"/>
-        <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="9">
+        <Label text="Foto:" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
+        <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="8">
             <Label fx:id="fotoLabel" text="Sin foto"/>
             <Button text="Cargar Foto" onAction="#cargarFoto"/>
         </HBox>
