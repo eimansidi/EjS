@@ -50,7 +50,7 @@ public class AnimalController {
     private TableColumn<Animal, String> colObservaciones;
 
     @FXML
-    private TableColumn<Animal, String> colUltimaRevision;
+    private TableColumn<Animal, String> colPrimeraConsulta;
 
     @FXML
     private Button addButton, editButton, deleteButton;
@@ -87,7 +87,7 @@ public class AnimalController {
         colEdad.setCellValueFactory(new PropertyValueFactory<>("edad"));
         colPeso.setCellValueFactory(new PropertyValueFactory<>("peso"));
         colObservaciones.setCellValueFactory(new PropertyValueFactory<>("observaciones"));
-        colUltimaRevision.setCellValueFactory(new PropertyValueFactory<>("ultimaRevision"));
+        colPrimeraConsulta.setCellValueFactory(new PropertyValueFactory<>("ultimaRevision"));
     }
 
     /**
