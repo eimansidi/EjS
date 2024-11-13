@@ -23,7 +23,7 @@
                 <TableColumn fx:id="colEdad" text="Edad" prefWidth="50"/>
                 <TableColumn fx:id="colPeso" text="Peso" prefWidth="100"/>
                 <TableColumn fx:id="colObservaciones" text="Observaciones" prefWidth="200"/>
-                <TableColumn fx:id="colUltimaRevision" text="Ultima Revision" prefWidth="150"/>
+                <TableColumn fx:id="colPrimeraRevision" text="Primera revision" prefWidth="150"/>
             </columns>
         </TableView>
     </center>

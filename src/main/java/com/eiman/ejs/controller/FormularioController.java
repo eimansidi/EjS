@@ -42,9 +42,6 @@ public class FormularioController {
     private DatePicker fechaPrimeraConsultaPicker;
 
     @FXML
-    private DatePicker ultimaRevisionPicker;
-
-    @FXML
     private Label fotoLabel;
 
     @FXML
