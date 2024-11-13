@@ -11,7 +11,7 @@ import java.sql.Statement;
 public class DBConnection {
 
     // URL de conexion a la base de datos
-    private static final String URL = "jdbc:sqlite:veterinario.db";
+    private static final String URL = "jdbc:sqlite:veterinaria.db";
 
     /**
      * Obtiene una conexion a la base de datos.
@@ -42,7 +42,7 @@ public class DBConnection {
                     peso REAL NOT NULL,
                     observaciones TEXT,
                     fecha_primera_consulta TEXT NOT NULL,
-                    foto TEXT
+                    foto BLOB
                 );
             """;
 
