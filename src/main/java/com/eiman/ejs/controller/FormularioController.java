@@ -65,9 +65,10 @@ public class FormularioController {
     }
 
     /**
-     * Configura la ventana con el animal a editar, o limpia los campos para un nuevo animal.
+     * Configura el animal a editar y el Stage para este formulario.
      *
-     * @param animal El animal a editar, o null si se agrega uno nuevo.
+     * @param animal El animal a editar, o null para agregar uno nuevo.
+     * @param stage El Stage asociado a este formulario.
      */
     public void setAnimal(Animal animal, Stage stage) {
         this.animal = animal;
@@ -85,6 +86,15 @@ public class FormularioController {
             fotoBytes = animal.getFoto();
             fotoLabel.setText(fotoBytes != null ? "Foto cargada" : "Sin foto");
         }
+    }
+
+    /**
+     * Configura el Stage para este formulario.
+     *
+     * @param stage El Stage asociado a este formulario.
+     */
+    public void setStage(Stage stage) {
+        this.stage = stage;
     }
 
     /**
@@ -112,6 +122,42 @@ public class FormularioController {
     @FXML
     public void guardar() {
         try {
+            // Validar campos vacíos
+            StringBuilder errores = new StringBuilder();
+            if (nombreField.getText().isEmpty()) errores.append("Nombre\n");
+            if (especieField.getText().isEmpty()) errores.append("Especie\n");
+            if (razaField.getText().isEmpty()) errores.append("Raza\n");
+            if (sexoField.getText().isEmpty()) errores.append("Sexo\n");
+            if (edadField.getText().isEmpty()) {
+                errores.append("Edad\n");
+            } else {
+                // Validar que Edad sea un número entero válido
+                try {
+                    Integer.parseInt(edadField.getText());
+                } catch (NumberFormatException e) {
+                    errores.append("Edad debe ser un número entero válido\n");
+                }
+            }
+            if (pesoField.getText().isEmpty()) {
+                errores.append("Peso\n");
+            } else {
+                // Validar que Peso sea un número decimal válido
+                try {
+                    Double.parseDouble(pesoField.getText());
+                } catch (NumberFormatException e) {
+                    errores.append("Peso debe ser un número válido\n");
+                }
+            }
+            if (observacionesArea.getText().isEmpty()) errores.append("Observaciones\n");
+            if (fechaPrimeraConsultaPicker.getValue() == null) errores.append("Fecha de Primera Consulta\n");
+
+            // Si hay errores, mostrar mensaje y no continuar
+            if (errores.length() > 0) {
+                showAlert("Advertencia", "Por favor corrija los siguientes errores:\n" + errores, Alert.AlertType.WARNING);
+                return;
+            }
+
+            // Continuar con la lógica de guardado si todos los campos son válidos
             if (animal == null) {
                 animal = new Animal();
             }
@@ -132,22 +178,28 @@ public class FormularioController {
                 animalDAO.updateAnimal(animal);
             }
 
-            stage.close();
+            if (stage != null) {
+                stage.close();
+            } else {
+                showAlert("Error", "No se pudo cerrar la ventana: Stage no inicializado.", Alert.AlertType.ERROR);
+            }
         } catch (SQLException e) {
             showAlert("Error", "No se pudo guardar el animal", Alert.AlertType.ERROR);
-        } catch (NumberFormatException e) {
-            showAlert("Error", "Por favor ingrese valores numericos validos para Edad y Peso", Alert.AlertType.WARNING);
         }
     }
+
 
     /**
      * Accion al presionar el boton de cancelar.
      */
     @FXML
     public void cancelar() {
-        stage.close();
+        if (stage != null) {
+            stage.close();
+        } else {
+            showAlert("Error", "No se pudo cerrar la ventana: Stage no inicializado.", Alert.AlertType.ERROR);
+        }
     }
-
     /**
      * Muestra una alerta con un mensaje especifico.
      *

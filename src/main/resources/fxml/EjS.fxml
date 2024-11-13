@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.eiman.ejs.controller.AnimalController">
     <top>
-        <HBox spacing="10.0" padding="10.0">
+        <HBox spacing="10">
             <TextField fx:id="searchField" promptText="Buscar por nombre..." HBox.hgrow="ALWAYS"/>
             <Button text="Agregar" fx:id="addButton" onAction="#addAnimal"/>
             <Button text="Editar" fx:id="editButton" onAction="#editAnimal"/>

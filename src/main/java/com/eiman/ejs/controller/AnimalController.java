@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -87,7 +88,7 @@ public class AnimalController {
         colEdad.setCellValueFactory(new PropertyValueFactory<>("edad"));
         colPeso.setCellValueFactory(new PropertyValueFactory<>("peso"));
         colObservaciones.setCellValueFactory(new PropertyValueFactory<>("observaciones"));
-        colPrimeraConsulta.setCellValueFactory(new PropertyValueFactory<>("ultimaRevision"));
+        colPrimeraConsulta.setCellValueFactory(new PropertyValueFactory<>("fechaPrimeraConsulta"));
     }
 
     /**
@@ -174,20 +175,19 @@ public class AnimalController {
             Parent root = loader.load();
 
             FormularioController controller = loader.getController();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
+            Stage formularioStage = new Stage();
+            controller.setAnimal(animal, formularioStage);
 
-            if (animal == null) {
-                stage.setTitle("Agregar Animal");
-            } else {
-                stage.setTitle("Editar Animal");
-                controller.setAnimal(animal, stage);
-            }
+            formularioStage.initModality(Modality.APPLICATION_MODAL);
+            formularioStage.setTitle(animal == null ? "Agregar Animal" : "Editar Animal");
+            formularioStage.setScene(new Scene(root));
+            formularioStage.showAndWait();
 
-            stage.showAndWait();
+            // Refresca la tabla después de cerrar el formulario
             loadTableData();
         } catch (IOException e) {
-            showAlert("Error", "No se pudo abrir el formulario", Alert.AlertType.ERROR);
+            e.printStackTrace();
+            showAlert("Error", "No se pudo cargar el formulario", Alert.AlertType.ERROR);
         }
     }
 
