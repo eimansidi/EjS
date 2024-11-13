@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" spacing="10" alignment="CENTER" fx:controller="controller.FormularioController">
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" spacing="10" alignment="CENTER" fx:controller="com.eiman.ejs.controller.FormularioController">
     <padding>
         <Insets top="10" right="10" bottom="10" left="10"/>
     </padding>
@@ -48,7 +48,7 @@
     </GridPane>
 
     <HBox spacing="10" alignment="CENTER">
-        <Button text="Guardar" fx:id="guardarButton" onAction="#guardarAnimal"/>
+        <Button text="Guardar" fx:id="guardarButton" onAction="#guardar"/>
         <Button text="Cancelar" fx:id="cancelarButton" onAction="#cancelar"/>
     </HBox>
 </VBox>
