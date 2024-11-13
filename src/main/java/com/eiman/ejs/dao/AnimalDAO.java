@@ -54,6 +54,30 @@ public class AnimalDAO {
     }
 
     /**
+     * Inserta un nuevo animal en la base de datos.
+     *
+     * @param animal Objeto Animal a insertar.
+     * @throws SQLException Si ocurre un error en la base de datos.
+     */
+    public void insertAnimal(Animal animal) throws SQLException {
+        String query = "INSERT INTO animals (nombre, especie, raza, sexo, edad, peso, observaciones, fecha_primera_consulta, foto) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+
+            pstmt.setString(1, animal.getNombre());
+            pstmt.setString(2, animal.getEspecie());
+            pstmt.setString(3, animal.getRaza());
+            pstmt.setString(4, animal.getSexo());
+            pstmt.setInt(5, animal.getEdad());
+            pstmt.setDouble(6, animal.getPeso());
+            pstmt.setString(7, animal.getObservaciones());
+            pstmt.setString(8, animal.getFechaPrimeraConsulta());
+            pstmt.setBytes(9, animal.getFoto());
+            pstmt.executeUpdate();
+        }
+    }
+
+    /**
      * Cierra la conexion a la base de datos.
      *
      * @throws SQLException Si ocurre un error al cerrar la conexion.
