@@ -18,6 +18,7 @@ public class AnimalesApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("GESTION DE VETERINARIO");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 

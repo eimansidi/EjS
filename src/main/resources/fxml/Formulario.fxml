@@ -1,47 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" spacing="10" alignment="CENTER" fx:controller="com.eiman.ejs.controller.FormularioController">
+<VBox alignment="CENTER" spacing="10" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.eiman.ejs.controller.FormularioController">
 
-    <Label text="Formulario de Animales" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+    <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Formulario de Animales" />
 
     <GridPane hgap="10" vgap="10">
 
-        <Label text="Nombre:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-        <TextField fx:id="nombreField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <Label text="Nombre:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="nombreField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-        <Label text="Especie:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-        <TextField fx:id="especieField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <Label text="Especie:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="especieField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-        <Label text="Raza:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-        <TextField fx:id="razaField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        <Label text="Raza:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="razaField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-        <Label text="Sexo:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-        <TextField fx:id="sexoField" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+        <Label text="Sexo:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <TextField fx:id="sexoField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-        <Label text="Edad:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
-        <TextField fx:id="edadField" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+        <Label text="Edad:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+        <TextField fx:id="edadField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
-        <Label text="Peso (kg):" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
-        <TextField fx:id="pesoField" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+        <Label text="Peso (kg):" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+        <TextField fx:id="pesoField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
-        <Label text="Observaciones:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
-        <TextArea fx:id="observacionesArea" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+        <Label text="Observaciones:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+        <TextArea fx:id="observacionesArea" GridPane.columnIndex="1" GridPane.rowIndex="6" />
 
-        <Label text="Fecha Primera Consulta:" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
-        <DatePicker fx:id="fechaPrimeraConsultaPicker" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+        <Label text="Fecha Primera Consulta:" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+        <DatePicker fx:id="fechaPrimeraConsultaPicker" GridPane.columnIndex="1" GridPane.rowIndex="7" />
 
-        <Label text="Foto:" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
+        <Label text="Foto:" GridPane.columnIndex="0" GridPane.rowIndex="8" />
         <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="8">
-            <Label fx:id="fotoLabel" text="Sin foto"/>
-            <Button text="Cargar Foto" onAction="#cargarFoto"/>
+            <Label fx:id="fotoLabel" text="Sin foto" />
+            <Button onAction="#cargarFoto" text="Cargar Foto" />
         </HBox>
+      <columnConstraints>
+         <ColumnConstraints />
+         <ColumnConstraints />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
     </GridPane>
 
-    <HBox spacing="10" alignment="CENTER">
-        <Button text="Guardar" fx:id="guardarButton" onAction="#guardar"/>
-        <Button text="Cancelar" fx:id="cancelarButton" onAction="#cancelar"/>
+    <HBox alignment="CENTER" spacing="10">
+        <Button fx:id="guardarButton" onAction="#guardar" text="Guardar" />
+        <Button fx:id="cancelarButton" onAction="#cancelar" text="Cancelar" />
     </HBox>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
 </VBox>

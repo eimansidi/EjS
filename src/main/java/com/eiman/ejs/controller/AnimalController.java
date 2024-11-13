@@ -181,6 +181,7 @@ public class AnimalController {
             formularioStage.initModality(Modality.APPLICATION_MODAL);
             formularioStage.setTitle(animal == null ? "Agregar Animal" : "Editar Animal");
             formularioStage.setScene(new Scene(root));
+            formularioStage.setResizable(false);
             formularioStage.showAndWait();
 
             // Refresca la tabla después de cerrar el formulario
