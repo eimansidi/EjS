@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.eiman.ejs.controller.AnimalController">
+    <top>
+        <HBox spacing="10" padding="10">
+            <TextField fx:id="searchField" promptText="Buscar por nombre..." HBox.hgrow="ALWAYS"/>
+            <Button text="Agregar" fx:id="addButton" onAction="#addAnimal"/>
+            <Button text="Editar" fx:id="editButton" onAction="#editAnimal"/>
+            <Button text="Eliminar" fx:id="deleteButton" onAction="#deleteAnimal"/>
+        </HBox>
+    </top>
+    <center>
+        <TableView fx:id="animalTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colNombre" text="Nombre" prefWidth="100"/>
+                <TableColumn fx:id="colEspecie" text="Especie" prefWidth="100"/>
+                <TableColumn fx:id="colRaza" text="Raza" prefWidth="100"/>
+                <TableColumn fx:id="colSexo" text="Sexo" prefWidth="100"/>
+                <TableColumn fx:id="colEdad" text="Edad" prefWidth="50"/>
+                <TableColumn fx:id="colPeso" text="Peso" prefWidth="100"/>
+                <TableColumn fx:id="colObservaciones" text="Observaciones" prefWidth="200"/>
+                <TableColumn fx:id="colUltimaRevision" text="Ultima Revision" prefWidth="150"/>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>
