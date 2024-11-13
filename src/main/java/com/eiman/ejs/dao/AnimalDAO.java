@@ -20,4 +20,15 @@ public class AnimalDAO {
     public AnimalDAO() throws SQLException {
         this.conn = DBConnection.getConnection();
     }
+
+    /**
+     * Cierra la conexion a la base de datos.
+     *
+     * @throws SQLException Si ocurre un error al cerrar la conexion.
+     */
+    public void closeConnection() throws SQLException {
+        if (conn != null && !conn.isClosed()) {
+            conn.close();
+        }
+    }
 }
