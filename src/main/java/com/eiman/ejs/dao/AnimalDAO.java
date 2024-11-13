@@ -103,6 +103,22 @@ public class AnimalDAO {
     }
 
     /**
+     * Elimina un registro de animal de la base de datos.
+     *
+     * @param id Identificador unico del animal a eliminar.
+     * @throws SQLException Si ocurre un error en la base de datos.
+     */
+    public void deleteAnimal(int id) throws SQLException {
+        String query = "DELETE FROM animals WHERE id = ?";
+
+        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+        }
+    }
+
+    /**
      * Cierra la conexion a la base de datos.
      *
      * @throws SQLException Si ocurre un error al cerrar la conexion.
