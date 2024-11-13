@@ -1,6 +1,7 @@
 module com.eiman.ejs {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
 
 
     opens com.eiman.ejs to javafx.fxml;
